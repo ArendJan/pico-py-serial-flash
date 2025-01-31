@@ -25,6 +25,12 @@ def chunk_sort_func(elem):
     return elem['PAddr']
 
 
+def get_section(sections, segment):
+    for section in sections:
+        if segment.section_in_segment(section):
+            return section
+    return None
+
 def load_elf(file_name: str):
     debug("")
     chunks = []
@@ -34,10 +40,17 @@ def load_elf(file_name: str):
             f = ELFFile(f_stream)
             debug(f.header)
             count = 0
-            # For each program header entry, check program adress and memsize. Check if fits in flash.
+            sections = list(f.iter_sections())
             for head_count in range(f.header['e_phnum']):
-                prog_head = f.get_segment(head_count).header
+                
+                segment = f.get_segment(head_count)
+                prog_head = segment.header
+                segment = get_section(sections, segment)
                 debug("Prog_HEAD: " + str(prog_head))
+                debug("Segment: " + str(segment.name))
+                if(segment.name in [".app_hdr", ".boot3"]):
+                    debug("skipping segment " + segment.name)
+                    continue
                 p_paddr = prog_head['p_paddr']
                 p_memsz = prog_head['p_memsz']
                 if not _is_in_flash(p_paddr, p_memsz):
