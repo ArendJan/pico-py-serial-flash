@@ -3,10 +3,12 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 [project]
 name = "pico_py_serial_flasher"
+authors = [{name="Confed Solutions B.V."}]
 version = "0.0.1"
 dependencies = [
-    'pyelftools==0.29',
+    'pyelftools==0.31',
     'pyserial==3.5',
 ]
+license = { text = "MIT License" }
 [project.scripts]
 pico_py_serial_flasher = "pico_py_serial_flasher.main:main"
