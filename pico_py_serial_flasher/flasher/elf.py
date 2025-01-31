@@ -1,7 +1,7 @@
 from elftools.elf.elffile import ELFFile
-from flasher.util import debug, puts, exit_prog
+from .util import debug, puts, exit_prog
 from dataclasses import dataclass
-from flasher.program import Image
+from .program import Image
 
 FLASH_BASE: int = 0x10000000
 FLASH_SIZE: int = 2 * 1024 * 1024

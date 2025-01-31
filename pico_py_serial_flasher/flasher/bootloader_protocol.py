@@ -1,7 +1,7 @@
 import time
 import serial
 import binascii
-from flasher.util import debug, puts, exit_prog, hex_bytes_to_int, bytes_to_little_end_uint32, little_end_uint32_to_bytes
+from .util import debug, puts, exit_prog, hex_bytes_to_int, bytes_to_little_end_uint32, little_end_uint32_to_bytes
 from dataclasses import dataclass
 
 

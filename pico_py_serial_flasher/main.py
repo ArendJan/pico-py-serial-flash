@@ -5,9 +5,9 @@ import traceback
 import os
 import serial.tools.list_ports
 import serial
-from flasher.elf import load_elf
-from flasher.util import debug, puts, usage_flasher, exit_prog
-from flasher.program import Image, Program
+from .flasher.elf import load_elf
+from .flasher.util import debug, puts, usage_flasher, exit_prog
+from .flasher.program import Image, Program
 
 
 # Called at start of main(), to catch program arguments and respond accordingly.
@@ -107,9 +107,8 @@ def run(_sys_args):
 bin_found: bool = False
 img: Image
 
-# Main of the program, handles args and captures the run function in try except clauses
-# to be able to easily catch errors
-if __name__ == '__main__':
+
+def main():
     sys_args = handle_args()
     try:
         run(sys_args)
@@ -124,3 +123,8 @@ if __name__ == '__main__':
         puts("Unexpected error: ", sys.exc_info()[0])
         puts(traceback.print_exc())
         raise
+
+# Main of the program, handles args and captures the run function in try except clauses
+# to be able to easily catch errors
+if __name__ == '__main__':
+    main()

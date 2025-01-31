@@ -1,6 +1,6 @@
 from dataclasses import dataclass
-from flasher.util import debug, puts, exit_prog, hex_bytes_to_int
-from flasher.bootloader_protocol import Protocol_RP2040
+from .util import debug, puts, exit_prog, hex_bytes_to_int
+from .bootloader_protocol import Protocol_RP2040
 
 
 @dataclass

@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "pico_py_serial_flasher"
+version = "0.0.1"
+dependencies = [
+    'pyelftools==0.29',
+    'pyserial==3.5',
+]
+[project.scripts]
+pico_py_serial_flasher = "pico_py_serial_flasher.main:main"

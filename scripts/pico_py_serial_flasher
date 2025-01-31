@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+echo "Running pico_py_serial_flasher"
+if [[ ! $@ ]]; then
+    python3 -m pico_py_serial_flasher -h
+else
+    python3 -m pico_py_serial_flasher $@
+fi
