@@ -5,9 +5,9 @@ import traceback
 import os
 import serial.tools.list_ports
 import serial
-from flasher.elf import load_elf
-from flasher.util import debug, puts, usage_flasher, exit_prog
-from flasher.program import Image, Program
+from .flasher.elf import load_elf
+from .flasher.util import debug, puts, usage_flasher, exit_prog
+from .flasher.program import Image, Program
 
 
 # Called at start of main(), to catch program arguments and respond accordingly.
