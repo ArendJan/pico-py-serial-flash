@@ -23,7 +23,7 @@ def exit_prog(before_flash: bool = True):
         puts("Program was exited before flashing the target device.")
     else:
         puts("Program has exited after/during flash. Be careful, flash might be damaged.")
-    exit()
+    exit(-1)
 
 
 def hex_bytes_to_int(hex_bytes: bytes) -> []:
